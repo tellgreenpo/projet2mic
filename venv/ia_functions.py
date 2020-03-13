@@ -1,6 +1,27 @@
 import random
 
 class  Ai:
+    # Create AI database, each key represent the number of sticks left in the game
+    AI_memory = {
+        "1": {"sticks_left": 1, "A": 1, "B": 1, "C": 1},
+        "2": {"sticks_left": 2, "A": 1, "B": 1, "C": 1},
+        "3": {"sticks_left": 3, "A": 1, "B": 1, "C": 1},
+        "4": {"sticks_left": 4, "A": 1, "B": 1, "C": 1},
+        "5": {"sticks_left": 5, "A": 1, "B": 1, "C": 1},
+        "6": {"sticks_left": 6, "A": 1, "B": 1, "C": 1},
+        "7": {"sticks_left": 7, "A": 1, "B": 1, "C": 1},
+        "8": {"sticks_left": 8, "A": 1, "B": 1, "C": 1},
+        "9": {"sticks_left": 9, "A": 1, "B": 1, "C": 1},
+        "10": {"sticks_left": 10, "A": 1, "B": 1, "C": 1},
+    }
+
+
+    def createdatabase(self):
+        f= open("memoryai.txt", "w")
+        f.write(str(AI_memory))
+        f.close()
+
+
     def __init__(self, sticks):
         self.sticks = sticks
 
@@ -44,4 +65,3 @@ class  Ai:
             move = random.randint(1,3)
         return move
 
-    
