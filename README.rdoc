@@ -1,0 +1,1 @@
+The goal of this project is to create a simple ai that learns to play a game. The game which will be called stickgame, is played by two players turn by turn. There are 10 sticks and the one who takes the last sticks looses. A player can tzake up to 3 sticks per turn
