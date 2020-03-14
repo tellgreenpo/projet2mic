@@ -34,8 +34,19 @@ class  Ai:
         current = memory.get(str(self.sticks))
         return current
 
+
+    #return letters equivalent of number of sticks taken
+    def letterchoice(self, choice):
+        if choice == 1:
+            return "A"
+        elif choice == 2:
+            return "B"
+        elif choice == 3:
+            return "C"
+
+
     # changes the choice to 0 if it is a loss
-    def modify_data(self, sticks, memory, win, choice):
+    def modify_data(self, sticks, memory, win, choice_letter):
         if not win :
             memory["AI" + str(sticks)][str(choice)] = 0
 
@@ -64,4 +75,3 @@ class  Ai:
         else:
             move = random.randint(1,3)
         return move
-
