@@ -23,22 +23,24 @@ class Ai:
         f = open("memoryai.txt", "w")
         f.write(str(
             {
-                "1": {"sticks_left": 1, "A": 1, "B": 1, "C": 1},
-                "2": {"sticks_left": 2, "A": 1, "B": 1, "C": 1},
-                "3": {"sticks_left": 3, "A": 1, "B": 1, "C": 1},
-                "4": {"sticks_left": 4, "A": 1, "B": 1, "C": 1},
-                "5": {"sticks_left": 5, "A": 1, "B": 1, "C": 1},
-                "6": {"sticks_left": 6, "A": 1, "B": 1, "C": 1},
-                "7": {"sticks_left": 7, "A": 1, "B": 1, "C": 1},
-                "8": {"sticks_left": 8, "A": 1, "B": 1, "C": 1},
-                "9": {"sticks_left": 9, "A": 1, "B": 1, "C": 1},
-                "10": {"sticks_left": 10, "A": 1, "B": 1, "C": 1},
+                1: {"A": 1, "B": 1, "C": 1},
+                2: {"A": 1, "B": 1, "C": 1},
+                3: {"A": 1, "B": 1, "C": 1},
+                4: {"A": 1, "B": 1, "C": 1},
+                5: {"A": 1, "B": 1, "C": 1},
+                6: {"A": 1, "B": 1, "C": 1},
+                7: {"A": 1, "B": 1, "C": 1},
+                8: {"A": 1, "B": 1, "C": 1},
+                9: {"A": 1, "B": 1, "C": 1},
+                10: {"A": 1, "B": 1, "C": 1},
             }
         ))
         f.close()
 
     def __init__(self, sticks):
         self.sticks = sticks
+        self.choice = 1
+        self.memory = {}
 
     def extract_memory(self): # peut etre modifier le code pour un parametre de l'object etant la memoire
         f = open("memoryai.txt", "r")
@@ -68,8 +70,9 @@ class Ai:
             memory["AI" + str(sticks)][str(choice_letter)] = 0
 
     # return the choice of the AI
-    def choice(self, memory, current, sticks):
+    def choice(self, memory, sticks):
         # if every choice is a loss, nullifies the path to it
+        current = memory[sticks]
         if current["A"] == 0 and current["B"] == 0 and current["C"] == 0:
             number = 1  # number of sticks variable
             while sticks - number >= 0 and number <= 3:  # limit of sticks is 3
