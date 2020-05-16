@@ -38,8 +38,7 @@ class Ai:
         f.close()
 
     def __init__(self, sticks):
-        self.sticks = sticks
-        self.the_chosen_one = 1
+        self.sticks = 10
         self.memory = {}
 
     def extract_memory(self): # peut etre modifier le code pour un parametre de l'object etant la memoire
@@ -51,9 +50,6 @@ class Ai:
     # sinon utiliser ça
     # fp = open(filepath, 'r').read()
 
-    # returns current state of the AI
-    def extract_data(self):
-        return str(self.sticks)
 
     # return letters equivalent of number of sticks taken
     def letterchoice(self, choice):
