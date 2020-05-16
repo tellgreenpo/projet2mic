@@ -39,7 +39,7 @@ class Ai:
 
     def __init__(self, sticks):
         self.sticks = sticks
-        self.choice = 1
+        self.the_chosen_one = 1
         self.memory = {}
 
     def extract_memory(self): # peut etre modifier le code pour un parametre de l'object etant la memoire

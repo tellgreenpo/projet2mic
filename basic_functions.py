@@ -60,7 +60,8 @@ def iaGame(player):
             print("ai wins")
             break
         else:
-            sticks -= ai.choice(ai.memory,ai.memory[str(sticks)],sticks)
+            ai.the_chosen_one = ai.choice(ai.memory,sticks)
+            sticks -= ai.the_chosen_one
             ai.sticks = sticks
             player["sticks_left"] = sticks
             if winnerVsAi(ai,player) != 0:
