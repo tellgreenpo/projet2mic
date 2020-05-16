@@ -65,9 +65,8 @@ class Ai:
             return "C"
 
     # changes the choice to 0 if it is a loss
-    def modify_data(self, sticks, memory, win, choice_letter):
-        if not win:
-            memory["AI" + str(sticks)][str(choice_letter)] = 0
+    def modify_data(self, sticks, choice_letter):
+        self.memory[sticks][choice_letter] = 0
 
     # return the choice of the AI
     def choice(self, memory, sticks):
@@ -76,7 +75,7 @@ class Ai:
         if current["A"] == 0 and current["B"] == 0 and current["C"] == 0:
             number = 1  # number of sticks variable
             while sticks - number >= 0 and number <= 3:  # limit of sticks is 3
-                self.modify_data(sticks - number, memory, False, number)  # sets the corresponding choice to null
+                self.modify_data(sticks + number, self.letterchoice(number))  # sets the corresponding choice to null
                 number = number + 1
             # chooses a random number for move according to "weights"
             move = random.randint(1, 3)
