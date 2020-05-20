@@ -5,6 +5,10 @@ player1 = {
     "sticks_left": 10
 }
 
+player2 = {
+    "sticks_left": 10
+}
+
 # Returns if a game is finished and print who is the winner between 2 players
 def winner_pvp(player1, player2):
     if player1["sticks_left"] <= 0:
@@ -50,6 +54,8 @@ def game(player1, player2):
 def iaGame(player):
     sticks = 10
     ai = ia_functions.Ai(10)
+    ai.createdatabase()
+    ai.memory = ai.extract_memory()
     while True:
         print("There are " + str(sticks) + " left in the game")
         print("Player1 how manny sticks do you want to take : 1, 2, 3 ?")
@@ -61,10 +67,14 @@ def iaGame(player):
             break
         else:
             ai.the_chosen_one = ai.choice(ai.memory,sticks)
+            print("The ai is taking "+str(ai.the_chosen_one)+" sticks")
             sticks -= ai.the_chosen_one
             ai.sticks = sticks
             player["sticks_left"] = sticks
             if winnerVsAi(ai,player) != 0:
-                ai.modify_data(sticks, ai.choice)
+                ai.modify_data(sticks+ai.the_chosen_one, ai.the_chosen_one)
                 print("player wins")
+                print(ai.memory)
                 break
+
+iaGame(player1)

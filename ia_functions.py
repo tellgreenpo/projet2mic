@@ -61,8 +61,8 @@ class Ai:
             return "C"
 
     # changes the choice to 0 if it is a loss
-    def modify_data(self, sticks, choice_letter):
-        self.memory[sticks][choice_letter] = 0
+    def modify_data(self, sticks, choice):
+        self.memory[sticks][self.letterchoice(choice)] = 0
 
     # return the choice of the AI
     def choice(self, memory, sticks):
