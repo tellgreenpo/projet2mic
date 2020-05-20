@@ -77,4 +77,17 @@ def iaGame(player):
                 print(ai.memory)
                 break
 
-iaGame(player1)
+def training(ai,length):
+    for times in range(length):
+        sticks = 10
+        while True:
+            training_choice = random.choice([1,2,3])
+            sticks -= training_choice
+            if sticks <= 0:
+                break
+            ai.the_chosen_one = ai.choice(ai.memory, sticks)
+            sticks -= ai.the_chosen_one
+            ai.sticks = sticks
+            if sticks <= 0:
+                ai.modify_data(sticks + ai.the_chosen_one, ai.the_chosen_one)
+                break
