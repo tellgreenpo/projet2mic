@@ -77,7 +77,10 @@ def iaGame(player):
                 print(ai.memory)
                 break
 
-def training(ai,length):
+def training(length):
+    ai = ia_functions.Ai(10)
+    ai.createdatabase()
+    ai.memory = ai.extract_memory()
     for times in range(length):
         sticks = 10
         while True:
@@ -91,3 +94,6 @@ def training(ai,length):
             if sticks <= 0:
                 ai.modify_data(sticks + ai.the_chosen_one, ai.the_chosen_one)
                 break
+    f = open("training_result.txt", "w")
+    f.write(str(ai.memory))
+    f.close()
