@@ -61,7 +61,7 @@ def iaGame(player):
 
 def training(length):
     ai = ia_functions.Ai(10)
-    ai.createdatabase()
+    ai.createdatabase("memoryai.txt")
     ai.memory = ai.extract_memory("memoryai.txt")
     for times in range(length):
         sticks = 10

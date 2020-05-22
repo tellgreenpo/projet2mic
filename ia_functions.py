@@ -3,8 +3,8 @@ import random
 
 class Ai:
 
-    def createdatabase(self):
-        f = open("memoryai.txt", "w")
+    def createdatabase(self,filename):
+        f = open(filename, "w")
         f.write(str(
             {
                 1: {1: 1, 2: 1, 3: 1},
